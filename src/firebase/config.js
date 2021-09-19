@@ -2,13 +2,16 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCcOLqcCszNg7iD8Bfqu56xMsZQOEtIEuw",
-  authDomain: "hc-vue-blog.firebaseapp.com",
-  projectId: "hc-vue-blog",
-  storageBucket: "hc-vue-blog.appspot.com",
-  messagingSenderId: "843235325624",
-  appId: "1:843235325624:web:ce5010f0a754b52f3e664d",
+  apiKey: "AIzaSyAGC6UhTQLDQGqETcTUMbcYhRB8f2uN-7k",
+  authDomain: "ece-events.firebaseapp.com",
+  projectId: "ece-events",
+  storageBucket: "ece-events.appspot.com",
+  messagingSenderId: "882402256262",
+  appId: "1:882402256262:web:56b88b4a66903e88e4f807",
+  measurementId: "G-EBR6WPCGQ9"
 };
 
 firebase.initializeApp(firebaseConfig);
