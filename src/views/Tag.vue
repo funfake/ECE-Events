@@ -1,9 +1,9 @@
 <template>
   <div class="tag">
     <div v-if="error">{{ error }}</div>
-    <div v-if="posts.length" class="layout">
-      <PostList :posts="postsWithTag" />
-      <TagCloud :posts="posts" />
+    <div v-if="event.length" class="layout">
+      <EventList :event="eventWithTag" />
+      <TagCloud :event="event" />
     </div>
     <div v-else>
       <Spinner />
@@ -14,23 +14,23 @@
 <script>
 import TagCloud from "../components/TagCloud.vue";
 import Spinner from "../components/Spinner.vue";
-import PostList from "../components/PostList.vue";
-import getPosts from "../composables/getPosts";
+import EventList from "../components/EventList.vue";
+import getEvents from "../composables/getEvents";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
 export default {
-  components: { PostList, Spinner, TagCloud },
+  components: { EventList, Spinner, TagCloud },
   setup() {
     const route = useRoute();
-    const { posts, error, load } = getPosts();
+    const { event, error, load } = getEvents();
 
     load();
-    const postsWithTag = computed(() => {
-      return posts.value.filter((p) => p.tags.includes(route.params.tag));
+    const eventWithTag = computed(() => {
+      return event.value.filter((p) => p.tags.includes(route.params.tag));
     });
 
-    return { error, posts, postsWithTag };
+    return { error, event, eventWithTag };
   },
 };
 </script>

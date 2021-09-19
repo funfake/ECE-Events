@@ -1,10 +1,10 @@
 import { ref } from "vue";
 
-const useTags = (posts) => {
+const useTags = (event) => {
   const tags = ref([]);
   const tagSet = new Set();
 
-  posts.forEach((item) => {
+  event.forEach((item) => {
     item.tags.forEach((tag) => tagSet.add(tag));
   });
 

@@ -12,7 +12,7 @@
         class="font-lighter text-gray-200
          hover:text-gray-100 "
         :to="{ name: 'Create' }"
-        >New Post</router-link
+        >New Event</router-link
       >
       <button
         class="font-bold text-red-500 bg-white px-2 py-1 rounded cursor-pointer hover:text-white hover:bg-red-500 transition-colors ml-4"

@@ -1,7 +1,7 @@
 <template>
-  <div class="post m-4 shadow-md p-3">
-    <router-link :to="{ name: 'Details', params: { id: post.id } }">
-      <h3 class="text-3xl font-black my-2">{{ post.title }}</h3>
+  <div class="event m-4 shadow-md p-3">
+    <router-link :to="{ name: 'Details', params: { id: event.id } }">
+      <h3 class="text-3xl font-black my-2">{{ event.title }}</h3>
     </router-link>
     <p class=" my-3 mx-1 text-lg ">{{ snippet }}</p>
     <div class="flex flex-wrap">
@@ -15,7 +15,7 @@
       cursor-pointer
       mx-1
       "
-        v-for="tag in post.tags"
+        v-for="tag in event.tags"
         :key="tag"
       >
         #{{ tag }}
@@ -27,10 +27,10 @@
 <script>
 import { computed } from "vue";
 export default {
-  props: ["post"],
+  props: ["event"],
   setup(props) {
     const snippet = computed(() => {
-      return props.post.body.substring(0, 130) + "...";
+      return props.event.body.substring(0, 130) + "...";
     });
     return { snippet };
   },

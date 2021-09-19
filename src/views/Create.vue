@@ -1,6 +1,6 @@
 <template>
   <div class="create p-4">
-    <h1 class="font-black text-center">Create A New Post</h1>
+    <h1 class="font-black text-center">Create A New Event</h1>
     <form @submit.prevent="handleSubmit">
       <label>Title:</label>
       <input
@@ -25,7 +25,7 @@
 
       <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
       <button class="bg-blue-500 text-white py-2 px-3 rounded-md block my-3">
-        Add Post
+        Add Event
       </button>
     </form>
   </div>
@@ -62,7 +62,7 @@ export default {
     };
 
     const handleSubmit = async () => {
-      const post = {
+      const event = {
         title: title.value,
         body: body.value,
         tags: tags.value,
@@ -70,7 +70,7 @@ export default {
         displayName: user.value.data.displayName,
         authorId: user.value.data.uid,
       };
-      const res = await projectFirestore.collection("posts").add(post);
+      const res = await projectFirestore.collection("event").add(event);
       router.push({ name: "Home" });
     };
 

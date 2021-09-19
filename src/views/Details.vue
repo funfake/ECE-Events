@@ -1,12 +1,12 @@
 <template>
   <div v-if="error">{{ error }}</div>
-  <div v-if="post" class="post p-4">
-    <h3 class="text-4xl font-black  mt-2 mb-1">{{ post.title }}</h3>
+  <div v-if="event" class="event p-4">
+    <h3 class="text-4xl font-black  mt-2 mb-1">{{ event.title }}</h3>
     <h5 class="my-0 mx-2 text-gray-600">
-      By <span class="text-purple-600">{{ post.displayName }} </span>
+      By <span class="text-purple-600">{{ event.displayName }} </span>
     </h5>
-    <p class="pre">{{ post.body }}</p>
-    <div class="my-2" v-if="user.data && user.data.uid === post.authorId">
+    <p class="pre">{{ event.body }}</p>
+    <div class="my-2" v-if="user.data && user.data.uid === event.authorId">
       <button
         @click="handleClick"
         class="px-3 py-2 font-semibold  text-red-600 ring m-2  ring-red-100
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import getPost from "@/composables/getPost";
+import getEvent from "@/composables/getEvent";
 import Spinner from "@/components/Spinner";
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
@@ -44,17 +44,17 @@ export default {
     const router = useRouter();
     const store = useStore();
     const user = computed(() => store.state.user);
-    const { error, post, load } = getPost(route.params.id);
+    const { error, event, load } = getEvent(route.params.id);
     load();
     const handleClick = async () => {
       await projectFirestore
-        .collection("posts")
+        .collection("event")
         .doc(props.id)
         .delete();
       load();
       router.push("/");
     };
-    return { error, post, handleClick, user };
+    return { error, event, handleClick, user };
   },
 };
 </script>
@@ -63,11 +63,11 @@ export default {
 .tags a {
   margin-right: 10px;
 }
-.post {
+.event {
   max-width: 1200px;
   margin: 0 auto;
 }
-.post p {
+.event p {
   color: #444;
   line-height: 1.5em;
   margin-top: 20px;

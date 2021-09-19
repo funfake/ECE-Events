@@ -15,9 +15,9 @@
       Sign In to Create a blog.
     </div>
     <div v-if="error">{{ error }}</div>
-    <div v-if="posts.length">
-      <PostList :posts="posts" />
-      <TagCloud :posts="posts" />
+    <div v-if="event.length">
+      <EventList :event="event" />
+      <TagCloud :event="event" />
     </div>
     <div v-else>
       <Spinner />
@@ -29,25 +29,25 @@
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 
-import PostList from "../components/PostList";
-import getPosts from "../composables/getPosts";
+import EventList from "../components/EventList";
+import getEvents from "../composables/getEvents";
 import Spinner from "../components/Spinner";
 import TagCloud from "../components/TagCloud.vue";
 
 export default {
   name: "Home",
   components: {
-    PostList,
+    EventList,
     Spinner,
     TagCloud,
   },
   setup() {
-    const { posts, error, load } = getPosts();
+    const { event, error, load } = getEvents();
     const store = useStore();
     const user = computed(() => store.state.user);
     console.log("sad", user.value.data);
     load();
-    return { posts, error, user };
+    return { event, error, user };
   },
 };
 </script>

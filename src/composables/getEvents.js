@@ -1,17 +1,17 @@
 import { ref } from "vue";
 import { projectFirestore } from "../firebase/config";
-const getPosts = () => {
-  const posts = ref([]);
+const getEvents = () => {
+  const event = ref([]);
   const error = ref(null);
 
   const load = async () => {
     try {
       const res = await projectFirestore
-        .collection("posts")
+        .collection("event")
         .orderBy("createdAt", "desc")
         .get();
 
-      posts.value = res.docs.map((doc) => {
+      event.value = res.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
     } catch (err) {
@@ -19,7 +19,7 @@ const getPosts = () => {
     }
   };
 
-  return { posts, error, load };
+  return { event, error, load };
 };
 
-export default getPosts;
+export default getEvents;
