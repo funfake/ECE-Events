@@ -1,6 +1,6 @@
 <template>
-  <div class="tag-cloud my-5 px-8">
-    <h3 class="text-xl text-blue-500 font-black text-center">Tags</h3>
+  <div class="tag-cloud my-8 px-5 md:px-8 lg:px-10">
+    <h3 class="text-xl text-secondary text-center font-semibold">Browse tags</h3>
     <div v-for="tag in tags" :key="tag">
       <router-link :to="{ name: 'Tag', params: { tag } }">
         #{{ tag }}
@@ -12,9 +12,9 @@
 <script>
 import useTags from "../composables/useTags";
 export default {
-  props: ["event"],
+  props: ["events"],
   setup(props) {
-    const { tags } = useTags(props.event);
+    const { tags } = useTags(props.events);
 
     return { tags };
   },
@@ -32,6 +32,6 @@ export default {
 }
 .tag-cloud a.router-link-active {
   color: #0084ff;
-  font-weight: bold;
+  font-weight: semibold;
 }
 </style>

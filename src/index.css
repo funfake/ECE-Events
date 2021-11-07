@@ -9,7 +9,7 @@
 
 .text-primary-hover {
     @apply text-black;
-    @apply hover:text-gray-500;
+    @apply hover:text-gray-700;
     @apply dark:text-white;
     @apply dark:hover:text-gray-300;
     /* @apply transition-colors; */
@@ -28,6 +28,11 @@
 .bg-secondary {
     @apply bg-gray-100;
     @apply dark:bg-gray-600;
+}
+
+.bg-secondary-hover {
+    @apply hover:bg-gray-200; 
+    @apply dark:hover:bg-gray-500;
 }
 
 p {

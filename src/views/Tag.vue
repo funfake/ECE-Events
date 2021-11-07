@@ -2,8 +2,8 @@
   <div class="tag">
     <div v-if="error">{{ error }}</div>
     <div v-if="event.length" class="layout">
-      <EventList :event="eventWithTag" />
       <TagCloud :event="event" />
+      <EventList :event="eventWithTag" />
     </div>
     <div v-else>
       <Spinner />
@@ -34,11 +34,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.tag {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px;
-}
-</style>

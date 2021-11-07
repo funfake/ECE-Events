@@ -7,10 +7,17 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
     "core-js": "^3.6.5",
+    "dayjs": "^1.10.7",
     "firebase": "^8.2.1",
+    "litepie-datepicker": "^1.0.14",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue3-date-time-picker": "^2.3.2",
     "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
@@ -19,8 +26,6 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "autoprefixer": "^9",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "vue-cli-plugin-tailwind": "~2.0.6"
   }
 }

@@ -4,6 +4,7 @@ import "./index.css";
 import router from "./router";
 import store from "./store";
 import { firebaseAuth } from "./firebase/config";
+import './assets/tailwind.css'
 
 firebaseAuth.onAuthStateChanged((user) => {
   // console.log(user.customClaims['admin']);

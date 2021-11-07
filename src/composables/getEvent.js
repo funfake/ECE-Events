@@ -6,15 +6,15 @@ const getEvent = (id) => {
 
   const load = async () => {
     try {
-      let res = await projectFirestore
-        .collection("event")
-        .doc(id)
-        .get();
-
-      if (!res.exists) {
-        throw Error("Not found");
-      }
-      event.value = { ...res.data(), id: res.id };
+      projectFirestore
+      .collection("event")
+      .doc(id)
+      .onSnapshot((doc) => {
+        if (!doc.exists) {
+          throw Error("Not found");
+        }
+        event.value = { ...doc.data(), id: doc.id };
+      });
     } catch (err) {
       error.value = err.message;
     }

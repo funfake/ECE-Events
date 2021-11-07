@@ -1,25 +1,25 @@
 import { ref } from "vue";
 import { projectFirestore } from "../firebase/config";
-const getEvents = () => {
-  const events = ref([]);
+const getUsersWithRoles = () => {
+  const users = ref([]);
   const error = ref(null);
 
-  const load = async () => {
+  const load = async (email) => {
     try {
       projectFirestore
-      .collection("event")
-      .orderBy("createdAt", "desc")
+      .collection("roles")
+      .where("email", "==", email)
       .onSnapshot((querySnapshot) => {
-        events.value = querySnapshot.docs.map((doc) => {
+        users.value = querySnapshot.docs.map((doc) => {
           return { ...doc.data(), id: doc.id };
-        });
+        })
       });
     } catch (err) {
       error.value = err.message;
     }
   };
 
-  return { events, error, load };
+  return { users, error, load };
 };
 
-export default getEvents;
+export default getUsersWithRoles;
