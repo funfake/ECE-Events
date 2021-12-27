@@ -1,5 +1,5 @@
 <template>
-  <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 event-list px-5 md:px-8 lg:px-10">
+  <div  class="px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 event-list md:px-8 lg:px-10">
     <div v-for="event in events" :key="event">
       <SingleEvent :event="event" />
     </div>

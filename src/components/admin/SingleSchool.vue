@@ -1,20 +1,20 @@
 <template>
   <div class="school-single">
-    <div class="bg-secondary bg-secondary-hover text-primary rounded-lg cursor-pointer p-4" @click="showModal = true">
+    <div class="p-4 rounded-lg cursor-pointer bg-secondary bg-secondary-hover text-primary" @click="showModal = true">
           <h2 class="text-lg font-semibold">
             {{ school.name }}
             <MicroButton text="Delete" color="red" @click="deleteSchool"/>
           </h2>
       </div>
       <GenericModal v-if="showModal" title="Modify school" @handleUpdate="process" @cancelUpdate="close">
-            <div class="grid max-w-xl grid-cols-2 gap-3 m-auto">
+            <div class="max-w-xl m-auto grid grid-cols-2 gap-3">
                 <div class="col-span-2">
-                    <label class="text-primary text-left">Name</label>
+                    <label class="text-left text-primary">Name</label>
                     <input  type="text" 
                             v-model="name"
                             required
                             id="event-form-title" 
-                            class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 my-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                            class="flex-1 w-full px-4 py-2 my-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                             placeholder="Name of the school"/>
                 </div>
             </div>

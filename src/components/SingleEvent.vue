@@ -15,9 +15,9 @@
         </div>
       </div>
       <div class="">
-        <h3 v-if="event.title.length < 15" class="text-2xl font-semibold py-4 mb-1"><span class="bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ event.title }}</span></h3>
-        <h3 v-else class="text-2xl font-semibold py-4 mb-1 bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ event.title }}</h3>
-        <p class="mb-3 mr-1 text-md "><span class="bg-white bg-opacity-60 dark:bg-gray-700 px-3 py-1 rounded-md">{{ snippet }}</span></p>
+        <h3 v-if="event.title.length < 15" class="py-4 mb-1 text-2xl font-semibold"><span class="px-3 pt-1 pb-2 bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ event.title }}</span></h3>
+        <h3 v-else class="px-3 py-4 pt-1 pb-2 mb-1 text-2xl font-semibold bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ event.title }}</h3>
+        <p class="mb-3 mr-1 text-md "><span class="px-3 py-1 bg-white bg-opacity-60 dark:bg-gray-700 rounded-md">{{ snippet }}</span></p>
       </div>
     </div>
   </div>

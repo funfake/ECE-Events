@@ -1,9 +1,9 @@
 <template>
   <div class="tag">
     <div v-if="error">{{ error }}</div>
-    <div v-if="event.length" class="layout">
-      <TagCloud :event="event" />
-      <EventList :event="eventWithTag" />
+    <div v-if="events.length" class="layout">
+      <TagCloud :events="events" />
+      <EventList :events="eventWithTag" />
     </div>
     <div v-else>
       <Spinner />
@@ -23,14 +23,14 @@ export default {
   components: { EventList, Spinner, TagCloud },
   setup() {
     const route = useRoute();
-    const { event, error, load } = getEvents();
+    const { events, error, load } = getEvents();
 
     load();
     const eventWithTag = computed(() => {
-      return event.value.filter((p) => p.tags.includes(route.params.tag));
+      return events.value.filter((p) => p.tags.includes(route.params.tag));
     });
 
-    return { error, event, eventWithTag };
+    return { error, events, eventWithTag };
   },
 };
 </script>

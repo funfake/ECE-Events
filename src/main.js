@@ -6,12 +6,12 @@ import store from "./store";
 import { firebaseAuth } from "./firebase/config";
 import './assets/tailwind.css'
 
-firebaseAuth.onAuthStateChanged((user) => {
-  // console.log(user.customClaims['admin']);
-  store.dispatch("fetchUser", user);
-});
-
 createApp(App)
   .use(store)
   .use(router)
   .mount("#app");
+
+firebaseAuth.onAuthStateChanged((user) => {
+    // console.log(user.customClaims['admin']);
+    store.dispatch("fetchUser", user);
+  });

@@ -16,18 +16,18 @@
             </div>
           </div>
           <div class="">
-            <h3 v-if="title.length < 15" class="text-2xl font-semibold py-4 mb-1"><span class="bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ title }}</span></h3>
-            <h3 v-else class="text-2xl font-semibold py-4 mb-1 bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ title }}</h3>
-            <p v-if="snippet" class="mb-3 mr-1 text-md "><span class="bg-white bg-opacity-60 dark:bg-gray-700 px-3 py-1 rounded-md">{{ snippet }}</span></p>
+            <h3 v-if="title.length < 15" class="py-4 mb-1 text-2xl font-semibold"><span class="px-3 pt-1 pb-2 bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ title }}</span></h3>
+            <h3 v-else class="px-3 py-4 pt-1 pb-2 mb-1 text-2xl font-semibold bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ title }}</h3>
+            <p v-if="snippet" class="mb-3 mr-1 text-md "><span class="px-3 py-1 bg-white bg-opacity-60 dark:bg-gray-700 rounded-md">{{ snippet }}</span></p>
           </div>
         </div>
     </div>
-    <form @submit.prevent="handleSubmit" class="flex w-full max-w-sm space-x-3 mx-auto">
+    <form @submit.prevent="handleSubmit" class="flex w-full max-w-sm mx-auto space-x-3">
       <div class="w-full max-w-2xl px-5 py-10 m-auto mt-5 bg-white rounded-lg shadow dark:bg-gray-800">
           <div class="mb-6 text-3xl font-light text-center text-primary">
               Create an event
           </div>
-          <div class="grid max-w-xl grid-cols-2 gap-3 m-auto">
+          <div class="max-w-xl m-auto grid grid-cols-2 gap-3">
               <!-- TITRE -->
               <div class="col-span-2">
                   <label class="text-primary">Title</label>
@@ -35,7 +35,7 @@
                           v-model="title"
                           required
                           id="event-form-title" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 my-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 my-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Title of the event"/>
               </div>
               <!-- DATE -->
@@ -57,7 +57,7 @@
                           v-model="time.hours"
                           required
                           id="event-form-hours" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 text-base text-center placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="HH"/>
               </div>
               <div class="col-span-1">
@@ -65,7 +65,7 @@
                           v-model="time.minutes"
                           required
                           id="event-form-minutes" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 text-base text-center placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="MM"/>
               </div>
               <!-- LOCATION -->
@@ -75,7 +75,7 @@
                           v-model="placename"
                           required
                           id="event-form-placename" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mt-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 mt-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Name of the place"/>
               </div>
               <div class="col-span-2">
@@ -83,7 +83,7 @@
                           v-model="address"
                           required
                           id="event-form-address" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Address"/>
               </div>
               <div class="col-span-1">
@@ -91,7 +91,7 @@
                           v-model="city"
                           required
                           id="event-form-city" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="City"/>
               </div>
               <div class="col-span-1">
@@ -99,7 +99,7 @@
                           v-model="zip"
                           required
                           id="event-form-zip" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Zipcode"/>
               </div>
               <div class="col-span-2">
@@ -107,7 +107,7 @@
                           v-model="notes"
                           required
                           id="event-form-notes" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mb-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 mb-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Useful additional address details"/>
               </div>
               <!-- IMAGE -->
@@ -124,7 +124,7 @@
               <div class="col-span-2">
                 <label class="text-primary" for="color">
                   Color
-                <select class="block w-full text-primary py-2 px-3 my-2 border border-gray-300 bg-secondary rounded-md shadow-sm focusxoutline-none focus:ring-primary-500 focus:border-primary-500"
+                <select class="block w-full px-3 py-2 my-2 border border-gray-300 text-primary bg-secondary rounded-md shadow-sm focusxoutline-none focus:ring-primary-500 focus:border-primary-500"
                         v-model="color"
                         required
                         name="color">
@@ -161,7 +161,7 @@
                       Details
                       <textarea v-model="body"
                                 required
-                                class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 my-2 bg-secondary text-primary placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                                class="flex-1 w-full px-4 py-2 my-2 text-base placeholder-gray-400 border border-gray-300 rounded-lg appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                                 id="details" 
                                 placeholder="Give details about the event" 
                                 name="details" 
@@ -178,12 +178,12 @@
                   v-model="tag"
                   type="text"
                   placeholder="Enter a tag"
-                  class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mt-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  class="flex-1 w-full px-4 py-2 mt-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg appearance-none bg-secondary text-primary shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
                 <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
               </div>
-              <div class="col-span-2 text-center">
-                  <button class="py-2 px-4 mt-6 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+              <div class="text-center col-span-2">
+                  <button class="w-full px-4 py-2 mt-6 text-base font-semibold text-center text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 transition ease-in duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ">
                       Save
                   </button>
               </div>

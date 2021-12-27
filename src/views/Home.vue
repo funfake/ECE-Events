@@ -2,10 +2,10 @@
   <div class="home">
     <aside class="p-12 rounded-xl sm:p-16 lg:p-24">
       <div class="max-w-xl mx-auto text-center text-primary">
-        <p v-if="user.data && user.loggedIn" class="text-md font-medium text-secondary">
+        <p v-if="user.data && user.loggedIn" class="font-medium text-md text-secondary">
           Welcome, {{ user.data.displayName }} !
         </p>
-        <p v-else class="text-md font-medium text-secondary">
+        <p v-else class="font-medium text-md text-secondary">
           We are proud to present you
         </p>
 

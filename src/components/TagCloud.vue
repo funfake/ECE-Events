@@ -1,6 +1,6 @@
 <template>
-  <div class="tag-cloud my-8 px-5 md:px-8 lg:px-10">
-    <h3 class="text-xl text-secondary text-center font-semibold">Browse tags</h3>
+  <div class="px-5 my-8 tag-cloud md:px-8 lg:px-10">
+    <h3 class="text-xl font-semibold text-center text-secondary">Browse tags</h3>
     <div v-for="tag in tags" :key="tag">
       <router-link :to="{ name: 'Tag', params: { tag } }">
         #{{ tag }}

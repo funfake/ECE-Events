@@ -1,9 +1,9 @@
 <template>
-  <div class="single-user bg-secondary text-primary rounded-lg cursor-pointer p-4">
-        <h2 class="text-lg font-semibold pb-3">{{ user.email }}</h2>
+  <div class="p-4 rounded-lg cursor-pointer single-user bg-secondary text-primary">
+        <h2 class="pb-3 text-lg font-semibold">{{ user.email }}</h2>
 
         <select @change="changeRole(user.id, $event)" 
-                class="block w-52 py-2 px-3 border border-gray-300 bg-primary text-primary rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="role">
+                class="block px-3 py-2 border border-gray-300 w-52 bg-primary text-primary rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="role">
             <option :selected="user.role.member" value="member">
                 Member
             </option>

@@ -16,13 +16,13 @@
             </div>
           </div>
           <div class="">
-            <h3 v-if="title.length < 15" class="text-2xl font-semibold py-4 mb-1"><span class="bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ title }}</span></h3>
-            <h3 v-else class="text-2xl font-semibold py-4 mb-1 bg-white bg-opacity-80 dark:bg-gray-700 px-3 pt-1 pb-2 rounded-lg">{{ title }}</h3>
-            <p v-if="snippet" class="mb-3 mr-1 text-md "><span class="bg-white bg-opacity-60 dark:bg-gray-700 px-3 py-1 rounded-md">{{ snippet }}</span></p>
+            <h3 v-if="title.length < 15" class="py-4 mb-1 text-2xl font-semibold"><span class="px-3 pt-1 pb-2 bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ title }}</span></h3>
+            <h3 v-else class="px-3 py-4 pt-1 pb-2 mb-1 text-2xl font-semibold bg-white rounded-lg bg-opacity-80 dark:bg-gray-700">{{ title }}</h3>
+            <p v-if="snippet" class="mb-3 mr-1 text-md "><span class="px-3 py-1 bg-white rounded-md bg-opacity-60 dark:bg-gray-700">{{ snippet }}</span></p>
           </div>
         </div>
     </div>
-    <form @submit.prevent="handleSubmit" class="flex w-full max-w-sm space-x-3 mx-auto">
+    <form @submit.prevent="handleSubmit" class="flex w-full max-w-sm mx-auto space-x-3">
       <div class="w-full max-w-2xl px-5 py-10 m-auto mt-5 bg-white rounded-lg shadow dark:bg-gray-800">
           <div class="mb-6 text-3xl font-light text-center text-primary">
               Create an event
@@ -35,80 +35,8 @@
                           v-model="title"
                           required
                           id="event-form-title" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 my-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          class="flex-1 w-full px-4 py-2 my-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                           placeholder="Title of the event"/>
-              </div>
-              <!-- DATE -->
-              <div class="col-span-2">
-                <label class="text-primary">Date and time</label>
-                <div class="flex mt-2">
-                  <!-- https://litepie.com/#get-started -->
-                  <litepie-datepicker
-                    overlay
-                    as-single
-                    :formatter="formatter"
-                    v-model="date"
-                  ></litepie-datepicker>
-                </div>
-              </div>
-              <!-- TIME -->
-              <div class="col-span-1">
-                <input  type="text" 
-                          v-model="time.hours"
-                          required
-                          id="event-form-hours" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="HH"/>
-              </div>
-              <div class="col-span-1">
-                <input  type="text" 
-                          v-model="time.minutes"
-                          required
-                          id="event-form-minutes" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="MM"/>
-              </div>
-              <!-- LOCATION -->
-              <div class="col-span-2">
-                  <label class="text-primary">Location</label>
-                  <input  type="text" 
-                          v-model="placename"
-                          required
-                          id="event-form-placename" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mt-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="Name of the place"/>
-              </div>
-              <div class="col-span-2">
-                  <input  type="text" 
-                          v-model="address"
-                          required
-                          id="event-form-address" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="Address"/>
-              </div>
-              <div class="col-span-1">
-                  <input  type="text" 
-                          v-model="city"
-                          required
-                          id="event-form-city" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="City"/>
-              </div>
-              <div class="col-span-1">
-                  <input  type="text" 
-                          v-model="zip"
-                          required
-                          id="event-form-zip" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="Zipcode"/>
-              </div>
-              <div class="col-span-2">
-                  <input  type="text" 
-                          v-model="notes"
-                          required
-                          id="event-form-notes" 
-                          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mb-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
-                          placeholder="Useful additional address details"/>
               </div>
               <!-- IMAGE -->
               <div class="grid-span-2">
@@ -124,7 +52,7 @@
               <div class="col-span-2">
                 <label class="text-primary" for="color">
                   Color
-                <select class="block w-full text-primary py-2 px-3 my-2 border border-gray-300 bg-secondary rounded-md shadow-sm focusxoutline-none focus:ring-primary-500 focus:border-primary-500"
+                <select class="block w-full px-3 py-2 my-2 border border-gray-300 rounded-md shadow-sm text-primary bg-secondary focusxoutline-none focus:ring-blue-500 focus:border-blue-500"
                         v-model="color"
                         required
                         name="color">
@@ -155,13 +83,121 @@
                 </select>
                 </label>
               </div>
+              <!-- DATE -->
+              <div class="col-span-2">
+                <label class="text-primary">Date and time</label>
+                <div class="flex mt-2">
+                  <!-- https://litepie.com/#get-started -->
+                  <litepie-datepicker
+                    overlay
+                    as-single
+                    :formatter="formatter"
+                    v-model="date"
+                  ></litepie-datepicker>
+                </div>
+              </div>
+              <!-- TIME -->
+              <div class="col-span-1">
+                <input  type="text" 
+                          v-model="time.hours"
+                          required
+                          id="event-form-hours" 
+                          class="flex-1 w-full px-4 py-2 text-base text-center placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="HH"/>
+              </div>
+              <div class="col-span-1">
+                <input  type="text" 
+                          v-model="time.minutes"
+                          required
+                          id="event-form-minutes" 
+                          class="flex-1 w-full px-4 py-2 text-base text-center placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="MM"/>
+              </div>
+              <!-- CAMPUS LOCATION -->
+              <div class="col-span-2">
+                  <label class="text-primary" for="color">
+                    Campus
+                  <select class="block w-full px-3 py-2 my-2 border border-gray-300 rounded-md shadow-sm text-primary bg-secondary focusxoutline-none focus:ring-blue-500 focus:border-blue-500"
+                          v-model="campusId"
+                          required
+                          name="campus"
+                          @click="schoolId = ''; schools = {}">
+                      <option value="">
+                          Select a campus
+                      </option>
+                      <option v-for="location in locations" :key="location.id" :value="location.id">
+                          {{ location.name }}
+                      </option>
+                  </select>
+                  </label>
+              </div>
+              <!-- SCHOOL -->
+              <div v-if="campusId" class="col-span-2">
+                  <label class="text-primary" for="color">
+                    School
+                  <select class="block w-full px-3 py-2 my-2 border border-gray-300 rounded-md shadow-sm text-primary bg-secondary focusxoutline-none focus:ring-blue-500 focus:border-blue-500"
+                          v-model="schoolId"
+                          required
+                          name="school"
+                          @click="loadSchools(campusId)">
+                      <option value="">
+                          Select a school
+                      </option>
+                      <option v-for="school in schools" :key="school.id" :value="school.id">
+                          {{ school.name }}
+                      </option>
+                  </select>
+                  </label>
+              </div>
+              <!-- LOCATION -->
+              <div class="col-span-2">
+                  <label class="text-primary">Location</label>
+                  <input  type="text" 
+                          v-model="placename"
+                          required
+                          id="event-form-placename" 
+                          class="flex-1 w-full px-4 py-2 mt-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="Name of the place"/>
+              </div>
+              <div class="col-span-2">
+                  <input  type="text" 
+                          v-model="address"
+                          required
+                          id="event-form-address" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="Address"/>
+              </div>
+              <div class="col-span-1">
+                  <input  type="text" 
+                          v-model="city"
+                          required
+                          id="event-form-city" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="City"/>
+              </div>
+              <div class="col-span-1">
+                  <input  type="text" 
+                          v-model="zip"
+                          required
+                          id="event-form-zip" 
+                          class="flex-1 w-full px-4 py-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="Zipcode"/>
+              </div>
+              <div class="col-span-2">
+                  <input  type="text" 
+                          v-model="notes"
+                          required
+                          id="event-form-notes" 
+                          class="flex-1 w-full px-4 py-2 mb-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                          placeholder="Useful additional address details"/>
+              </div>
               <!-- DETAILS -->
               <div class="col-span-2">
                   <label class="text-primary" for="details">
                       Details
                       <textarea v-model="body"
                                 required
-                                class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 my-2 bg-secondary text-primary placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                                class="flex-1 w-full px-4 py-2 my-2 text-base placeholder-gray-400 border border-gray-300 rounded-lg appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
                                 id="details" 
                                 placeholder="Give details about the event" 
                                 name="details" 
@@ -178,12 +214,12 @@
                   v-model="tag"
                   type="text"
                   placeholder="Enter a tag"
-                  class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 mt-2 bg-secondary text-primary placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  class="flex-1 w-full px-4 py-2 mt-2 text-base placeholder-gray-400 border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
                 <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
               </div>
               <div class="col-span-2 text-center">
-                  <button class="py-2 px-4 mt-6 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+                  <button class="w-full px-4 py-2 mt-6 text-base font-semibold text-center text-white transition duration-200 ease-in bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ">
                       Save
                   </button>
               </div>
@@ -199,6 +235,8 @@ import { useStore } from "vuex";
 import { projectFirestore, timestamp, storage, storageRef } from "../firebase/config";
 import { useRouter } from "vue-router";
 import LitepieDatepicker from 'litepie-datepicker';
+import getLocations from "@/composables/getLocations";
+import getSchools from "@/composables/getSchools"
 
 export default {
   components:{
@@ -218,6 +256,29 @@ export default {
     const time = ref({ 
         hours: new Date().getHours(),
         minutes: new Date().getMinutes()
+    });
+    // CAMPUS
+    const { locations, locationsError, loadLocations } = getLocations();
+    const campusId = ref("");
+    const campus = computed(() => {
+      if(campusId.value != "") {
+        return {
+          id: campusId.value,
+          name: locations.value.find(element => element.id == campusId.value).name
+        }
+      } else return {};
+    });
+    loadLocations();
+    // SCHOOL
+    const { schools, schoolsError, loadSchools } = getSchools();
+    const schoolId = ref("");
+    const school = computed(() => {
+      if(campusId.value && schoolId.value) {
+        return {
+          id: schoolId.value,
+          name: schools.value.find(element => element.id == schoolId.value).name
+        }
+      } else return {};
     });
     // LOCATION
     const placename = ref("");
@@ -303,6 +364,8 @@ export default {
         title: title.value.substring(0, 8),
         date: date.value,
         time: time.value,
+        campus: campus.value,
+        school: school.value,
         location: location.value,
         img_url: imgUrl.value,
         color: color.value,
@@ -313,10 +376,12 @@ export default {
         authorId: user.value.data.uid,
       };
       const res = await projectFirestore.collection("event").add(event);
-      router.push({ name: "Home" });
+      router.push({ name: "Events" });
     };
 
     return { body, snippet, title, date, formatter, time,
+             locations, locationsError, campusId,
+             schools, schoolsError, loadSchools, schoolId, school,
              placename, address, zip, city, notes,
              imgUrl, color, tag, tags, onFileChange, handleKeydown, handleSubmit };
   },

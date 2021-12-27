@@ -7,7 +7,7 @@ import "firebase/functions";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC6b-SgMJ-KXG7xsZCg1fL8SIc5Gwo7n_Y",
+  apiKey: "AIzaSyDAsCnShH89kLED8MhvE9nwZhA4DJ6oSic",
   authDomain: "ece-events.firebaseapp.com",
   projectId: "ece-events",
   storageBucket: "ece-events.appspot.com",
